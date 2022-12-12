@@ -35,21 +35,22 @@ var google = new GoogleAPI();
 gapi.load("client:auth2", function () {
     gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com"});
 });
-async function MakeAPost() {
+// async function MakeAPost() {
+
+//     errorMessage.innerHTML = "";
+//     console.log(title);
+//     if(clientIsLoaded) {
+
+//     } else {
+//         console.log("Client is not loaded");
+//     }
+// }
+async function Authorize() {
     var title = document.getElementById('title').value;
     var content = document.getElementById('postcontent').value;
-    var errorMessage = document.createElement('p');
-    errorMessage.innerHTML = "";
-    console.log(title);
-    if(clientIsLoaded) {
-        google.execute(title, content, draft);
-    } else {
-        console.log("Client is not loaded");
-    }
-}
-async function Authorize() {
     await google.authenticate();
-    google.loadClient();
+    await google.loadClient();
+    google.execute(title, content, draft);
 }
 document.querySelector('.draft').addEventListener('click', function (e) {
     if(e.target.value == "draft") {
@@ -59,5 +60,5 @@ document.querySelector('.draft').addEventListener('click', function (e) {
         draft = false;
     }
 });
-document.querySelector('#authorize').addEventListener('click', Authorize)
-document.querySelector('#submitpost').addEventListener('click', MakeAPost);
+// document.querySelector('#authorize').addEventListener('click', Authorize)
+document.querySelector('#submitpost').addEventListener('click', Authorize);

@@ -43,12 +43,12 @@ async function MakeAPost() {
     console.log(title);
     if(clientIsLoaded) {
         google.execute(title, content, draft);
+
     } else {
         console.log("Client is not loaded");
     }
 }
 async function Authorize() {
-
     await google.authenticate();
     google.loadClient();
 
@@ -61,5 +61,5 @@ document.querySelector('.draft').addEventListener('click', function (e) {
         draft = false;
     }
 });
-document.querySelector('#authorize').addEventListener('click', google.authenticate().then(google.loadClient()))
+document.querySelector('#authorize').addEventListener('click', Authorize)
 document.querySelector('#submitpost').addEventListener('click', MakeAPost);

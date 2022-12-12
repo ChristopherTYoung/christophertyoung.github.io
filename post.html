@@ -90,15 +90,9 @@
         async function MakeAPost() {
             var title = document.getElementById('title').value;
             var content = document.getElementById('postcontent').value;
-            var errorMessage;
-            errorMessage.innerHTML = "";
             console.log(title);
-            if (clientIsLoaded) {
-                google.execute(title, content, draft);
-
-            } else {
-                console.log("Client is not loaded");
-            }
+            google.execute(title, content, draft);
+            console.log("Client is not loaded");
 
         }
         async function Authorize() {

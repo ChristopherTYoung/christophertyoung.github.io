@@ -1,0 +1,180 @@
+img {
+    border: solid black;
+    border-radius: 10px;
+}
+.dropbtn {
+    display: none;
+}
+.dropdowncontent {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    background-color: white;
+}
+.dropdowncontent a:hover {
+    background-color: lightgray;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 1 */
+.navigation {
+    padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border: black 1px solid;
+    border-radius: 15px 15px 0 0;
+    background-color: gray;
+}
+.navigation:hover {
+    background-color: lightgray;
+}
+.navigation:active {
+    background-color: white;
+}
+.postlink {
+    color: lightblue;
+}
+.postlink:hover {
+    color: red;
+}
+.postlink:active {
+    color: orange;
+}
+nav {
+    padding: 1em;
+    text-align: center;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 2 */
+.titleblock {
+    text-align: center;
+    background-color: gray;
+    border: black 1px solid;
+    border-radius: 10px 10px 0 0;
+}
+body {
+    /* REQUIREMENT #5 - css flexbox */
+    display: flex;
+    flex-flow: column wrap;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 3 */
+html {
+    background-image: linear-gradient(#1F2502, #090225);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 4 */
+footer {
+    text-align: center;
+    margin-bottom: 1px;
+    color: lightgray;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 5 */
+textarea {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+/* REQUIREMENT #4 - Hand-crafted css rule 6 */
+.contentdiv {
+    background-color: lightgray;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    border-left: double 4px black;
+    border-right: double 4px black;
+    padding: 1em;
+    border-radius: 0 0 10px 10px;
+}
+/* REQUIREMENT #7 - Media Query 1 */
+@media (min-width: 501px) and (max-width: 871px) {
+    /* REQUIREMENT #4 - Hand-crafted css rule 7 */
+    .navigation {
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 0 0;
+        width: 50%;
+        text-align: left;
+    }
+    /* REQUIREMENT #4 - Hand-crafted css rule 8 */
+    nav {
+        display: flex;
+        flex-flow: column wrap;
+        grid-area: N;
+        width: 80%;
+    }
+    /* REQUIREMENT #4 - Hand-crafted css rule 9 */
+    .titleblock {
+        border: none;
+        border-radius: 10px 0 0 10px;
+        border-top: solid 2px black;
+        border-left: double 4px black;
+        border-bottom: solid 2px black;
+        border-right: solid 2px black;
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+    }
+    /* REQUIREMENT #4 - Hand-crafted css rule 10 */
+    body {
+        /* REQUIREMENT #6 - CSS Grid */
+        display: grid;
+        grid-template-areas: 
+        'N C'
+        'F F';
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 1fr 5fr;
+    }
+    .contentdiv {
+        grid-area: C;
+        border-radius: 0 10px 10px 0;
+        border: none;
+        border-top: solid 2px black;
+        border-right: 4px double black;
+        border-bottom: solid 2px black;
+        width: auto;
+        height: auto;
+        margin-left: 0;
+    }
+    header {
+        font-size: medium;
+        padding: 1em;
+    }
+    footer {
+        grid-area: F;
+    }
+}
+/* REQUIREMENT #7 - Media Query 2 */
+@media (min-width: 5px) and (max-width: 500px) {
+    .titleblock {
+        height: 20%;
+    }
+    .contentdiv {
+        height: 80%;
+    }
+    nav {
+        display: none;
+    }
+    .dropdown {
+        width: 10%;
+    }
+    .dropbtn {
+        display: block;
+        margin-left: 1px;
+    }
+    .dropdowncontent {
+        flex-flow: column wrap;
+    }
+    .dropdowncontent a {
+        border: none;
+        border: 0 0;
+        background-color: white;
+        padding: 1em;
+    }
+    .dropdowncontent a:hover {
+        background-color: lightgray;
+
+    }
+    .dropdown:hover .dropdowncontent {
+        /* REQUIREMENT #5 - CSS Flexbox */
+        display: flex;
+        margin-left: 1px;
+    }
+}

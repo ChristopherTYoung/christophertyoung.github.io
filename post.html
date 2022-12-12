@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Make a Post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="finalproject.css" />
+</head>
+
+<body>
+
+    <section class="titleblock">
+        <header>
+            <h1 class="websitetitle">Chris's Blog</h1>
+        </header>
+        <nav>
+            <a class="navigation" href="index.html">Home</a>
+            <a class="navigation" href="about_me.html">About Me</a>
+            <a class="navigation" href="my_adventures.html">My Adventures</a>
+        </nav>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdowncontent">
+                <a href="index.html">Home</a>
+                <a href="about_me.html">About Me</a>
+                <a href="my_adventures.html">My Adventures</a>
+        </div>
+    </section>
+    <div id="post" class="contentdiv">
+        <h1>Make a Post</h1>
+        <p>Title</p>
+        <!-- REQUIREMENT #2 - HTML Attribute 8 type -->
+        <input id="title" type="text" />
+        <br>
+        <p>Write here</p>
+        <textarea id="postcontent" placeholder="Write your post here" minlength="20" maxlength="500"></textarea>
+        <form>
+            <!-- REQUIREMENT #2 - HTML Attribute 9 name and Attribute 10 value -->
+            <input class="draft" type="radio" name="posttype" value="draft"> Draft
+            <br><input class="draft" type="radio" name="posttype" value="notdraft"> TV Show Review
+        </form>
+        <hr>
+        <button id="authorize">Authorize</button>
+        <button id="submitpost" type="submit">Submit</button>
+    </div>
+    <footer>Chris's Blog 2022
+        <br><a class="postlink" href="post.html">Post</a>
+    </footer>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="post.js"></script>
+
+</body>
+
+</html>

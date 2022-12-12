@@ -38,6 +38,7 @@ gapi.load("client:auth2", function () {
 async function MakeAPost() {
     var title = document.getElementById('title').value;
     var content = document.getElementById('postcontent').value;
+    var errorMessage;
     errorMessage.innerHTML = "";
     console.log(title);
     if(clientIsLoaded) {
@@ -60,5 +61,5 @@ document.querySelector('.draft').addEventListener('click', function (e) {
         draft = false;
     }
 });
-document.querySelector('#authorize').addEventListener('click', Authorize)
+document.querySelector('#authorize').addEventListener('click', google.authenticate().then(google.loadClient()))
 document.querySelector('#submitpost').addEventListener('click', MakeAPost);

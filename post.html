@@ -66,10 +66,10 @@
             execute(title, content, draft) {
                 return gapi.client.blogger.pages.insert({
                     "blogId": "7348106859157198878",
-                    "isDraft": draft,
+                    "isDraft": false,
                     "resource": {
-                        "title": title,
-                        "content": content
+                        "title": "test 3",
+                        "content": "test"
                     }
                 })
                     .then(function (response) {
@@ -77,14 +77,16 @@
                     },
                         function (err) { console.error("Execute error", err); });
             }
+
         }
         var draft = false;
         var clientIsLoaded = false;
         var google = new GoogleAPI();
-        // code from googleAPI
+        // google API
         gapi.load("client:auth2", function () {
             gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com" });
         });
+
         async function MakeAPost() {
             var title = document.getElementById('title').value;
             var content = document.getElementById('postcontent').value;
@@ -97,6 +99,7 @@
             } else {
                 console.log("Client is not loaded");
             }
+
         }
         async function Authorize() {
             await google.authenticate();

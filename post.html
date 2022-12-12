@@ -83,22 +83,16 @@
         var clientIsLoaded = false;
         var google = new GoogleAPI();
         // google API
-        gapi.load("client:auth2", function () {
-            gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com" });
-        });
 
-        async function MakeAPost() {
+        async function Authorize() {
             var title = document.getElementById('title').value;
             var content = document.getElementById('postcontent').value;
-            console.log(title);
-            google.execute(title, content, draft);
-            console.log("Client is not loaded");
-
-        }
-        async function Authorize() {
+            await gapi.load("client:auth2", function () {
+                gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com" });
+            });
             await google.authenticate();
-            google.loadClient();
-
+            await google.loadClient();
+            google.execute(title, content, draft);
         }
         document.querySelector('.draft').addEventListener('click', function (e) {
             if (e.target.value == "draft") {
@@ -108,8 +102,8 @@
                 draft = false;
             }
         });
-        document.querySelector('#authorize').addEventListener('click', Authorize)
-        document.querySelector('#submitpost').addEventListener('click', MakeAPost);
+        // document.querySelector('#authorize').addEventListener('click', Authorize);
+        document.querySelector('#submitpost').addEventListener('click', Authorize);
 
     </script>
     <!-- <script src="post.js"></script> -->

@@ -36,12 +36,12 @@ var google = new GoogleAPI();
 gapi.load("client:auth2", function () {
     gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com" });
 });
-function Authorize() {
+async function Authorize() {
     var title = document.getElementById('title').value;
     var content = document.getElementById('postcontent').value;
 
-    google.authenticate()
-        .then(google.loadClient());
+    await google.authenticate()
+            .then(google.loadClient());
     google.execute(title, content, draft);
 }
 document.querySelector('.draft').addEventListener('click', function (e) {

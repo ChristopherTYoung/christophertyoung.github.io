@@ -1,5 +1,5 @@
-// REQUIREMENT #11 - a JavaScript class
-class GoogleAPI {
+ // REQUIREMENT #11 - a JavaScript class
+ class GoogleAPI {
     // Free to use code from the google api
     authenticate() {
         return gapi.auth2.getAuthInstance()
@@ -27,39 +27,30 @@ class GoogleAPI {
             },
                 function (err) { console.error("Execute error", err); });
     }
+
 }
 var draft = false;
 var clientIsLoaded = false;
 var google = new GoogleAPI();
-// code from googleAPI
+// Google API
 gapi.load("client:auth2", function () {
-    gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com"});
+    gapi.auth2.init({ client_id: "712979888110-4471m7m95b4m5u269stfnbkpdthbtrcp.apps.googleusercontent.com" });
 });
-async function MakeAPost() {
+function Authorize() {
     var title = document.getElementById('title').value;
     var content = document.getElementById('postcontent').value;
-    var errorMessage;
-    errorMessage.innerHTML = "";
-    console.log(title);
-    if(clientIsLoaded) {
-        google.execute(title, content, draft);
 
-    } else {
-        console.log("Client is not loaded");
-    }
-}
-async function Authorize() {
-    await google.authenticate();
-    google.loadClient();
-
+    google.authenticate()
+        .then(google.loadClient());
+    google.execute(title, content, draft);
 }
 document.querySelector('.draft').addEventListener('click', function (e) {
-    if(e.target.value == "draft") {
+    if (e.target.value == "draft") {
         draft = true;
     }
-    else if(e.target.value == "notdraft") {
+    else if (e.target.value == "notdraft") {
         draft = false;
     }
 });
-document.querySelector('#authorize').addEventListener('click', Authorize)
-document.querySelector('#submitpost').addEventListener('click', MakeAPost);
+// REQUIREMENT #8 - Event Listener
+document.querySelector('#submitpost').addEventListener('click', Authorize);

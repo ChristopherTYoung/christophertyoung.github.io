@@ -41,7 +41,7 @@ async function Authorize() {
     var content = document.getElementById('postcontent').value;
 
     await google.authenticate()
-            .then(google.loadClient());
+    await google.loadClient();
     google.execute(title, content, draft);
 }
 document.querySelector('.draft').addEventListener('click', function (e) {
